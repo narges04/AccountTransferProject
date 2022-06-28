@@ -37,7 +37,8 @@ namespace TransferMoney.Provider
 
         public async Task<TransferMoneyOutput> TransferMoneyRequest(TransferMoneyInput request)
         {
-            switch (request.SourceCardNumber.Substring(6))
+            string x = request.SourceCardNumber.Substring(0,6);
+            switch (x)
             {
                 case "123456":
                     AyandeConnector ayandeConnector = new AyandeConnector();
