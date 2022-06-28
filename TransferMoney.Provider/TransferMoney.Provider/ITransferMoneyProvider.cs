@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TransferMoney.Domain.DTO.Input;
+using TransferMoney.Domain.DTO.Output;
 
 namespace TransferMoney.Provider
 {
     public interface ITransferMoneyProvider
     {
-        object TransferMoneyRequest(TransferMoneyInput request);
+        Task<IEnumerable<TransferMoneyOutput>> TransferMoneyRequest(TransferMoneyInput request);
     }
 }
