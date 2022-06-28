@@ -12,9 +12,8 @@ namespace TransferMoney.Provider
         private AsyncRetryPolicy _retryPolicy;
         private AsyncCircuitBreakerPolicy _circuitBreakerPolicy;
 
-        public TransferMoneyProvider(AsyncCircuitBreakerPolicy circuitBreakerPolicy, AsyncRetryPolicy retryPolicy)
+        public TransferMoneyProvider()
         {
-            _circuitBreakerPolicy = circuitBreakerPolicy;
             _retryPolicy = Policy
                .Handle<Exception>()
                .WaitAndRetryAsync(2, retryAttempt => {
