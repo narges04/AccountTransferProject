@@ -8,6 +8,8 @@ namespace TransferMoney.Domain.DTO.Output
 {
     public class TransferMoneyOutput 
     {
+        public int ResponseCode { get; set; }   
+        public string ResponseDesc { get; set; }   
         public string TransactionId { get; set; }
         public string ReferenceId { get; set; }
 

@@ -10,6 +10,7 @@ namespace TransferMoney.Provider
 {
     public interface IConnector
     {
-        Task<IEnumerable<TransferMoneyOutput>> TransferMoney(TransferMoneyInput input);
+        //I suppose that methods of connector can be different if not it can implement via abstract class and virtual method to avoid repeate code
+        Task<TransferMoneyOutput> TransferMoney(TransferMoneyInput input);
     }
 }

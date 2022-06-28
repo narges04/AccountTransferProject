@@ -19,7 +19,7 @@ namespace AccountTransfer.Api.Controllers
             _transferMoneyProvider = transferMoneyProvider; 
         }
         [HttpPost("AccountTransfer")]
-        public async Task<IEnumerable<TransferMoneyOutput>> AccountTransfer(TransferMoneyInput request)
+        public async Task<TransferMoneyOutput> AccountTransfer(TransferMoneyInput request)
         {
             return await _transferMoneyProvider.TransferMoneyRequest(request);
         }

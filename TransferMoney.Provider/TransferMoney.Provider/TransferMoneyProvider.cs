@@ -35,21 +35,21 @@ namespace TransferMoney.Provider
                 });
         }
 
-        public async Task<IEnumerable<TransferMoneyOutput>> TransferMoneyRequest(TransferMoneyInput request)
+        public async Task<TransferMoneyOutput> TransferMoneyRequest(TransferMoneyInput request)
         {
             switch (request.SourceCardNumber.Substring(6))
             {
                 case "123456":
                     AyandeConnector ayandeConnector = new AyandeConnector();
-                    return await _retryPolicy.ExecuteAsync<IEnumerable<TransferMoneyOutput>>(async () => await ayandeConnector.TransferMoney(request));
+                    return await _retryPolicy.ExecuteAsync<TransferMoneyOutput>(async () => await ayandeConnector.TransferMoney(request));
                     break;
                 case "134555":
                     SamanConnector samanConnector = new SamanConnector();
-                    return await _retryPolicy.ExecuteAsync<IEnumerable<TransferMoneyOutput>>(async () => await samanConnector.TransferMoney(request));
+                    return await _retryPolicy.ExecuteAsync<TransferMoneyOutput>(async () => await samanConnector.TransferMoney(request));
                     break;
                 case "234546":
                     MellatConnector mellatConnector = new MellatConnector();
-                    return await _retryPolicy.ExecuteAsync<IEnumerable<TransferMoneyOutput>>(async () => await mellatConnector.TransferMoney(request));
+                    return await _retryPolicy.ExecuteAsync<TransferMoneyOutput>(async () => await mellatConnector.TransferMoney(request));
                     break;
                 default:
                     return null;

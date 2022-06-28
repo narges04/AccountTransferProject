@@ -10,6 +10,6 @@ namespace TransferMoney.Provider
 {
     public interface ITransferMoneyProvider
     {
-        Task<IEnumerable<TransferMoneyOutput>> TransferMoneyRequest(TransferMoneyInput request);
+        Task<TransferMoneyOutput> TransferMoneyRequest(TransferMoneyInput request);
     }
 }
